@@ -72,6 +72,20 @@
   color: white;
 }
 
+.App-sidebar {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  font-size: calc(10px + 2vmin);
+  color: blue;
+}
+
+.App-sidebar-button {
+  background-color:  #282c34;
+  color: white;
+}
+
 .App-link {
   color: #61dafb;
 }

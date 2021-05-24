@@ -11,24 +11,37 @@ import {
   Route,
   Link
 } from "react-router-dom";
+import Sidebar from "react-sidebar";
+
 
 export default function PageRouter() {
-  return (
-    <Router>
-      <div className="App-header">
-        <ul>
-          <li>
-            <Link to="/">Home</Link>
-          </li>
-          <li>
-            <Link to="/about">About</Link>
-          </li>
-          <li>
-            <Link to="/dashboard">Dashboard</Link>
-          </li>
-        </ul>
+  const [sidebarOpen, setSideBarOpen] = useState(false);
 
-        <hr />
+  let onSetSidebarOpen = (open) => {
+    setSideBarOpen(open)
+  }
+
+  return (
+
+    <Router>
+      <Sidebar
+      sidebar={
+        
+        <div className="App-sidebar">
+          
+              <Link className="App-link" to="/">Home</Link>
+              <Link className="App-link" to="/about">About</Link>
+              <Link className="App-link" to="/dashboard">Dashboard</Link>
+
+        </div>
+
+      }
+      open={sidebarOpen}
+      onSetOpen={onSetSidebarOpen}
+      styles={{ sidebar: { background: "white" } }}
+      >
+
+      <div className="App-header">
 
         {/*
           A <Switch> looks through all its children <Route>
@@ -37,6 +50,9 @@ export default function PageRouter() {
           you have multiple routes, but you want only one
           of them to render at a time
         */}
+      <button className="App-sidebar-button" onClick={() => setSideBarOpen(true)}>
+      Open sidebar
+      </button>
         <Switch>
           <Route exact path="/">
             <Home />
@@ -49,7 +65,10 @@ export default function PageRouter() {
           </Route>
         </Switch>
       </div>
+      </Sidebar>
+
     </Router>
+
   );
 }
 

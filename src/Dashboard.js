@@ -10,7 +10,6 @@ import {
   Link
 } from "react-router-dom";
 
-
 export default function Dashboard() {
     const [materialsIncluded, setMaterials] = useState(['Functional Components (React Hooks)']);
     const [materialsNotIncluded, setUnMaterials] = useState([]);
@@ -55,8 +54,8 @@ export default function Dashboard() {
           <div>
             <form onSubmit={submitHandler}>
                 <label>
-                    Materi :
-                    <input type="text" name="name" value={materialInput} onChange={handleChangeIncluded} />
+                    Materi:
+                    <input style={{marginLeft: 5}} type="text" name="name" value={materialInput} onChange={handleChangeIncluded} />
                 </label>
                 <input type="submit" value="Submit" onClick={handleSubmit} className="buttonSubmit"/>
             </form>
@@ -81,8 +80,8 @@ export default function Dashboard() {
           <div>
             <form onSubmit={submitHandler}>
                 <label>
-                    Materi :
-                    <input type="text" name="name" value={materialInputUnincluded} onChange={handleChangeUnincluded} />
+                    Materi:
+                    <input style={{marginLeft: 5}} type="text" name="name" value={materialInputUnincluded} onChange={handleChangeUnincluded} />
                 </label>
                 <input type="submit" value="Submit" onClick={handleSubmitAlt} className="buttonSubmit"/>
             </form>
